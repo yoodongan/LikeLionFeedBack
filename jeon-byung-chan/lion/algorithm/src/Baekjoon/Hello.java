@@ -3,5 +3,7 @@ package Baekjoon;
 import java.*;
 
 public class Hello {
-    System.out.println("hello");
+    public static void main(String[] args) {
+        System.out.println("Hello Class");
+    }
 }
