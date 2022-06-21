@@ -60,3 +60,10 @@
   -   ***정답이 아닌 힌트를 통해 리뷰이가 스스로 고민하고 수정할 수 있도록 도와주세요!***
 <br />
 <br />
+
+## ✅ 참여자와 진행도
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Jwhyee"><img src="https://avatars.githubusercontent.com/u/82663161?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jwhy</b><br><img src="https://us-central1-progress-markdown.cloudfunctions.net/progress/1" /></sub></a><br /></td>
+  </tr>
+</table>
