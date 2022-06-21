@@ -24,6 +24,7 @@
 
 ## ✅ commit 규칙
 - commit 메세지: [문제 출처(플랫폼)] 문제이름 / 난이도 / 걸린시간 
+- [백준 난이도 표시 참고 링크](https://ndb796.tistory.com/466)
 - description: 문제 주소 (option)
 - 플랫폼 작성법 통일: 
   * [BOJ] - 백준 
