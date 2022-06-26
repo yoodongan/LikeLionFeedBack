@@ -38,7 +38,7 @@ public class Back2941 {
         }
         System.out.println(count);
         /*
-            //다른 방법 
+            //다른 방법
             //분명 내가 replace 쓸 때는 무슨 조건때문에 안 됐는데 기억이 안 난다.
             Scanner s = new Scanner(System.in);
             String t = s.next();

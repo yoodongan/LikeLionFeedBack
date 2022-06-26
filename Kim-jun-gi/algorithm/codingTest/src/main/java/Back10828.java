@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+
+//스택
 public class Back10828 {
     public static int[] stack;
     public static int size = 0;
