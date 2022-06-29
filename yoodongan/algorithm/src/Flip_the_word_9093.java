@@ -21,7 +21,7 @@ public class Flip_the_word_9093 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
         while (t-- > 0) {          // t번 반복과 똑같다.
-            String str = br.readLine();
+            String str = br.readLine() +"\n";
             flipWord(str);
         }
         bw.close();
