@@ -13,4 +13,4 @@
 **/.DS_Store
 **/._.DS_Store
 
-/src/main/java/likelion/
+../src/main/java/likelion/**
