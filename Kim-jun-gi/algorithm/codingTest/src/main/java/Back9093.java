@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
 
 // 단어 뒤집기
 public class Back9093 {
@@ -14,7 +12,7 @@ public class Back9093 {
             String[] str = br.readLine().split(" ");
             for (int j = 0; j < str.length; j++) {
                 String s = str[j];
-                StringBuffer sb = new StringBuffer(s);
+                StringBuilder sb = new StringBuilder(s);
                 str[j] = sb.reverse().toString();
             }
 
