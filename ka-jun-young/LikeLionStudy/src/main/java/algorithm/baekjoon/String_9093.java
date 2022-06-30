@@ -18,8 +18,8 @@ public class String_9093 {
         for (int i = 0; i < T; i++) {
             String testCase = br.readLine();
             StringTokenizer st = new StringTokenizer(testCase);
+
             int wordCount = countChar(testCase, ' ');
-            String[] strArr = new String[wordCount + 1];
             for (int j = 0; j < wordCount + 1; j++) {
                 answer += reverseWord(st.nextToken()) + " ";
             }
