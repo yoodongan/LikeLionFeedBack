@@ -25,11 +25,11 @@ public class OpenChatting {
             if (userInOut.get(i).contains("Enter")) {
                 answer[i] = userInfo.get(userInOut.get(i)
                         .replaceAll("님 Enter", "")) + "님이 들어왔습니다.";
-                // userInOut에 사용했던 "님 Enter"를 지운 후 "님이 들어왔습니다." 추가
+                // userInOut에 사용했던 "님 Enter"를 지운 후 닉네임만 추출해 "님이 들어왔습니다." 추가
             } else {
                 answer[i] = userInfo.get(userInOut.get(i)
                         .replaceAll("님 Leave", "")) + "님이 나갔습니다.";
-                // userInOut에 사용했던 "님 Leave"를 지운 후 "님이 나갔습니다." 추가
+                // userInOut에 사용했던 "님 Leave"를 지운 후 닉네임만 추출해 "님이 나갔습니다." 추가
             }
         }
         return answer;
