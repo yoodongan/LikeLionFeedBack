@@ -18,6 +18,7 @@ public class Back1213 {
         for (String s : alp) {
             list.add(s);
         }
+
         System.out.println(solution(list));
     }
     public static String solution(List<String> list){
