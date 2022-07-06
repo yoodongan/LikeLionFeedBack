@@ -1,5 +1,7 @@
-import java.util.*;
+package prg1LV;
 
+import java.util.*;
+//신고 뭐시기
 public class ProgrammersGetReportResult {
     public static void main(String[] args) {
         String[] id_list = {"muzi", "frodo", "apeach", "neo"};

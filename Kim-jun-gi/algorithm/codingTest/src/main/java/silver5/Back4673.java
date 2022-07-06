@@ -1,3 +1,5 @@
+package silver5;
+
 import javax.imageio.IIOException;
 import java.io.BufferedWriter;
 import java.io.IOException;
