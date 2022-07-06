@@ -5,7 +5,7 @@ import java.util.*;
 public class OpenChatting {
     public static String[] solution(String[] record) {
         Map<String, String> userInfo = new HashMap<>();  // USER 최신 정보를 담는 HashMap -> K = uid, V = nickname
-        List<String> userInOut = new ArrayList<>();    // USER 출입 정보를 담는 ArrayList -> nickname 출입기록
+        List<String> userInOut = new ArrayList<>();    // USER 출입 정보를 담는 ArrayList -> uid 출입기록
 
         for (String command : record) {
             String[] cmdInfo = command.split(" ");    // 0 : 출입 정보, 1 : uid, 2: nickname
@@ -18,7 +18,8 @@ public class OpenChatting {
                 userInOut.add(cmdInfo[1] + "님 Leave");      // 유저가 퇴장한 기록을 userInOut에 저장
             }
         }
-
+        System.out.println(userInfo);
+        System.out.println(userInOut);
         String[] answer = new String[userInOut.size()];     // userInOut의 size를 통해 몇 번 들어오고 나갔는지 확인 가능
 
         for (int i = 0; i < userInOut.size(); i++) {
