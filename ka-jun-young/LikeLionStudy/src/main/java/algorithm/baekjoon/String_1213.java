@@ -22,14 +22,14 @@ public class String_1213 {
         Stack<String> stack = new Stack<>();
         // 주어진 문장의 반씩 스택에 넣기 위해 사용
 
-        a : if (caseLength % 2 == 0) {  // 주어진 Case가 짝수일 경우
+        case1 : if (caseLength % 2 == 0) {  // 주어진 Case가 짝수일 경우
             for (int i = 0; i < caseLength; i += 2) {
                 if (testCaseArr[i].equals(testCaseArr[i + 1])) {
                     sb.append(testCaseArr[i]);      // 문자열의 절반만 append 해준다.
                     stack.push(testCaseArr[i]);     // 해당 문자를 stack에 넣어 거꾸로 뽑을 수 있게 해준다.
                 } else {
                     System.out.println("I'm Sorry Hansoo");
-                    break a;
+                    break case1;
                 }
             }
             while (!stack.empty()) {
@@ -47,7 +47,7 @@ public class String_1213 {
                     i--;
                 } else {
                     System.out.println("I'm Sorry Hansoo");
-                    break a;
+                    break case1;
                 }
             }
             if (temp.equals("tmp")) {
