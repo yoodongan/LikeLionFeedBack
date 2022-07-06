@@ -6,10 +6,10 @@ import java.io.InputStreamReader;
 
 public class String_1543 {
     public static int countTarget(String str, String target) {
-        if (!str.contains(target)) return 0;
         int cnt = 0;
-        for (int i = 0; i < str.length(); i += target.length()) {
-            if (str.substring(i).startsWith(target)) {
+        str = str.replaceAll(target, "0");
+        for (int i = 0; i < str.length(); i ++) {
+            if (str.charAt(i) == '0') {
                 cnt++;
             }
         }
@@ -19,6 +19,7 @@ public class String_1543 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String testCase = br.readLine();
         String target = br.readLine();
+        br.close();
         System.out.println(countTarget(testCase, target));
     }
 }
