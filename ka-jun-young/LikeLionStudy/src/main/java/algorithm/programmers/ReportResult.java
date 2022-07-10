@@ -19,37 +19,26 @@ public class ReportResult {
         // answer 배열을 멤버 수대로 만든다.
 
         /* HashMap -> 저장 순서 보장 X, LinkedHashMap -> 저장 순서 보장 */
-        Map<String, String> reporterInfoMap = new LinkedHashMap<>();
-        Map<String, Integer> reportedCountMap = new LinkedHashMap<>();
+        Map<String, String> reporterInfoMap = new HashMap<>();
+        Map<String, Integer> reportedCountMap = new HashMap<>();
         HashSet<String> reportList = new HashSet<>(Arrays.asList(report));
 
-        /* 1단계 : id_list 순서대로 map 초기화 */
-        for (String userId : id_list) {
-            reporterInfoMap.put(userId, "");
-            reportedCountMap.put(userId, 0);
-        }
-
-        /* 2단계 : report 순서대로 유저가 신고한 유저들을 저장 */
         for (String reportInfo : reportList) {
             String reporterId = reportInfo.split(" ")[0]; // 신고를 한 유저
             String reported = reportInfo.split(" ")[1]; // 신고를 받은 유저
-            String reportId = reporterInfoMap.get(reporterId) + " " + reported;
             // 신고를 한 유저의 신고 목록을 받아와서 reported 추가
-
-            reporterInfoMap.replace(reporterId, reportId.trim());
+            reporterInfoMap.put(reporterId, (reporterInfoMap.getOrDefault(reporterId, "") + " " + reported).trim());
             // trim()을 통해 앞 뒤 공백 제거 -> 맨 처음 저장될 때 " "가 추가되기 때문!
-            reportedCountMap.replace(reported, reportedCountMap.getOrDefault(reported, 0) + 1);
+            reportedCountMap.put(reported, reportedCountMap.getOrDefault(reported, 0) + 1);
         }
 
-        /* 3단계 info keySet()을 돌면서 answer 배열 완성 */
-        for (String userId : id_list) {
-            int idx = 0;
-            if (reportedCountMap.get(userId) >= k) {
-                for (String reportedListStr : reporterInfoMap.values()) {
-                    if (reportedListStr.contains(userId)) {
-                        answer[idx]++;
+        for (String userId : reportedCountMap.keySet()) {
+            int reportedCount = reportedCountMap.get(userId);
+            if (reportedCount >= k) {
+                for (int i = 0; i < id_list.length; i++) {
+                    if (reporterInfoMap.containsKey(id_list[i]) && reporterInfoMap.get(id_list[i]).contains(userId)) {
+                        answer[i]++;
                     }
-                    idx++;
                 }
             }
         }
