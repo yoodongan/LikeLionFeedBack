@@ -21,17 +21,14 @@ public class Back9375 {
             while (n-- > 0){
                 // 입력값에서 옷의 종류만 받아옴
                 String type = br.readLine().split(" ")[1];
-
                 // 옷의 종류가 이미 있는 경우
-                if (map.containsKey(type)) {
-                    map.put(type, map.get(type)+1);
-                } else {
-                    map.put(type, 1);
-                }
+                map.put(type, map.getOrDefault(type, 0)+1 );
             }
 
             // 종류마다 옷은 하나만 입을 수 있다. (옷이 중복되는 경우는 존재하지 않음)
+            // 바지 : 바지1 바지2 바지3, 아예입지않을겨
             // 경우의 수:  하나를 입는 경우 + 하나도 입지 않는 경우
+
             int result = 1;
             for (Integer value : map.values()) {
                 result = result * (value+1);
