@@ -21,6 +21,7 @@ public class ReportResult {
         /* HashMap -> 저장 순서 보장 X, LinkedHashMap -> 저장 순서 보장 */
         Map<String, String> reporterInfoMap = new LinkedHashMap<>();
         Map<String, Integer> reportedCountMap = new LinkedHashMap<>();
+        HashSet<String> reportList = new HashSet<>(Arrays.asList(report));
 
         /* 1단계 : id_list 순서대로 map 초기화 */
         for (String userId : id_list) {
@@ -29,19 +30,15 @@ public class ReportResult {
         }
 
         /* 2단계 : report 순서대로 유저가 신고한 유저들을 저장 */
-        for (String reportInfo : report) {
+        for (String reportInfo : reportList) {
             String reporterId = reportInfo.split(" ")[0]; // 신고를 한 유저
             String reported = reportInfo.split(" ")[1]; // 신고를 받은 유저
-            if (!reporterInfoMap.get(reporterId).contains(reported)) {
-                // 중복 방지를 위해 신고한 유저의 신고 목록에 reported 가 없다면 저장
+            String reportId = reporterInfoMap.get(reporterId) + " " + reported;
+            // 신고를 한 유저의 신고 목록을 받아와서 reported 추가
 
-                String reportId = reporterInfoMap.get(reporterId) + " " + reported;
-                // 신고를 한 유저의 신고 목록을 받아와서 reported 추가
-
-                reporterInfoMap.replace(reporterId, reportId.trim());
-                // trim()을 통해 앞 뒤 공백 제거 -> 맨 처음 저장될 때 " "가 추가되기 때문!
-                reportedCountMap.replace(reported, reportedCountMap.getOrDefault(reported, 0) + 1);
-            }
+            reporterInfoMap.replace(reporterId, reportId.trim());
+            // trim()을 통해 앞 뒤 공백 제거 -> 맨 처음 저장될 때 " "가 추가되기 때문!
+            reportedCountMap.replace(reported, reportedCountMap.getOrDefault(reported, 0) + 1);
         }
 
         /* 3단계 info keySet()을 돌면서 answer 배열 완성 */
