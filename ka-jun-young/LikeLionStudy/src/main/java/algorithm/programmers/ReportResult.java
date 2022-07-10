@@ -22,13 +22,13 @@ public class ReportResult {
         Map<String, String> userReportInfoMap = new LinkedHashMap<>();
         Map<String, Integer> userReportedCountMap = new LinkedHashMap<>();
 
-        /* 1단계 id_list 순서대로 map 초기화 */
+        /* 1단계 : id_list 순서대로 map 초기화 */
         for (String userId : id_list) {
             userReportInfoMap.put(userId, "");
             userReportedCountMap.put(userId, 0);
         }
 
-        /* 2단계 report 순서대로 유저가 신고한 유저들을 저장 */
+        /* 2단계 : report 순서대로 유저가 신고한 유저들을 저장 */
         for (String reportInfo : report) {
             String reporter = reportInfo.split(" ")[0]; // 신고를 한 유저
             String reported = reportInfo.split(" ")[1]; // 신고를 받은 유저
@@ -42,13 +42,18 @@ public class ReportResult {
                 // trim()을 통해 앞 뒤 공백 제거 -> 맨 처음 저장될 때 " "가 추가되기 때문!
             }
         }
+
+        /* 3단계 info keySet()을 돌면서 answer 배열 완성 */
         for (String userId : userReportInfoMap.keySet()) {
-            int reportedCount = 0;
+            int reportedCount = 0;  // 신고된 횃수를 세는 reportedCount
+
+            /* 3-1단계 : valueSet()을 돌면서 userId가 reportList에 포함되어 있다면 카운트 증가 */
             for (String reportList : userReportInfoMap.values()) {
                 if (reportList.contains(userId)) {
                     reportedCount++;
                 }
             }
+            /* 3-2단계 : reportedCount가 k번 이상이라면 해당 유저의 countMap 값 증가 */
             if (reportedCount >= k) {
                 for (Map.Entry<String, String> entry : userReportInfoMap.entrySet()) {
                     if (entry.getValue().contains(userId)) {
@@ -59,6 +64,7 @@ public class ReportResult {
             }
         }
         int idx = 0;
+        /* 4단계 : answer 배열에 값 넣기 */
         for (Map.Entry<String, Integer> entry : userReportedCountMap.entrySet()) {
             answer[idx] = userReportedCountMap.get(entry.getKey());
             ++idx;
