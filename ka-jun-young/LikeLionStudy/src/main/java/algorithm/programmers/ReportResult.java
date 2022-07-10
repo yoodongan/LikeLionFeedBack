@@ -20,11 +20,15 @@ public class ReportResult {
         /* 1단계 : 풀이에 필요한 Map, Set 생성 */
         int[] answer = new int[id_list.length];
         // answer 배열의 길이를 지정
+
         Map<String, String> reporterInfoMap = new HashMap<>();
         // 누가 누구를 신고했는지 저장하는 reporterInfoMap
+
         Map<String, Integer> reportedCountMap = new HashMap<>();
         // 누가 몇 번 신고를 당했는지 저장하는 reportedCountMap
+
         HashSet<String> reportArrSet = new HashSet<>(Arrays.asList(report));
+        // report 배열에 중복이 있으면 안 되기 때문에 HashSet 사용
 
 
         /* 2단계 : InfoMap, CountMap -> 값을 저장 */
