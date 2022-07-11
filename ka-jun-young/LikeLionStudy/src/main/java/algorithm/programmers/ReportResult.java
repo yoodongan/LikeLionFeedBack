@@ -44,6 +44,9 @@ public class ReportResult {
             // 저장되어 있던 value를 가져와 +1을 해줌
 
         }
+        System.out.println("reportedCountMap = " + reportedCountMap);
+        // countMap.size == id_list.length로 맞춰서 해보기
+        System.out.println("reporterInfoMap = " + reporterInfoMap);
 
         /* 3단계 : k회 이상 신고 당해 정지 처분을 받은 유저를 신고한 사람을 찾는 과정 */
         for (String reportedId : reportedCountMap.keySet()) {
@@ -54,12 +57,21 @@ public class ReportResult {
                 // value 값이 k회 이상일 때
 
                 for (int i = 0; i < id_list.length; i++) {
-                    if (reporterInfoMap.containsKey(id_list[i]) && reporterInfoMap.get(id_list[i]).contains(reportedId)) {
+                    /*if (reporterInfoMap.containsKey(id_list[i]) && reporterInfoMap.get(id_list[i]).contains(reportedId)) {
                         answer[i]++;
+                    }*/
+                    if (reporterInfoMap.containsKey(id_list[i]) && reporterInfoMap.get(id_list[i]).contains(reportedId)) {
+                        String[] arr = reporterInfoMap.get(id_list[i]).split(" ");
+                        for (String s : arr) {
+                            if (s.equals(reportedId)) {
+                                answer[i]++;
+                            }
+                        }
                     }
                 }
             }
         }
+
 
         return answer;
     }
