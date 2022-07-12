@@ -1,7 +1,7 @@
 package algorithm.programmers;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class NoCompletion {
 
@@ -13,39 +13,29 @@ public class NoCompletion {
     * completion : 완주한 선수 배열
     */
     public static String solution(String[] participant, String[] completion) {
-
         String answer = "";
-
-        List<String> completionList = new ArrayList<>(List.of(completion));
-        List<String> participantList = new ArrayList<>(List.of(participant));
-
-        for (int i = 0; i < participantList.size(); i++) {
-            String player = participantList.get(i);
-            boolean flag = false;
-            for (int j = 0; j < completionList.size(); j++) {
-                String cPlayer = completionList.get(j);
-                if (player.equals(cPlayer)) {
-                    completionList.remove(j);
-                    flag = true;
-                    break;
-                }
-            }
-            if (flag) {
-                participantList.remove(i);
-                i--;
-            } else {
+        Map<String, Integer> playerMap = new HashMap<>();
+        for (String player : participant) {
+            playerMap.put(player, playerMap.getOrDefault(player, 0) + 1);
+        }
+        for (String player : completion) {
+            playerMap.put(player, playerMap.get(player) -1);
+        }
+        for (String player : playerMap.keySet()) {
+            if (playerMap.get(player) != 0) {
                 answer = player;
+                break;
             }
         }
         return answer;
     }
     public static void main(String[] args) {
-        String[] participant = {"leo", "kiki", "eden"};
+//        String[] participant = {"leo", "kiki", "eden"};
 //        String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
-//        String[] participant = {"mislav", "stanko", "mislav", "ana"};
-        String[] completion = {"eden", "kiki"};
+        String[] participant = {"mislav", "stanko", "mislav", "ana"};
+//        String[] completion = {"eden", "kiki"};
 //        String[] completion = {"josipa", "filipa", "marina", "nikola"};
-//        String[] completion = {"stanko", "ana", "mislav"};
+        String[] completion = {"stanko", "ana", "mislav"};
         System.out.println(solution(participant, completion));
     }
 }
