@@ -1,4 +1,4 @@
-// Dynamic Programming 풀이. 2차원 배열 사용 안함.
+package BOJ;// Dynamic Programming 풀이. 2차원 배열 사용 안함.
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
