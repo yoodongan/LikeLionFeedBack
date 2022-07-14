@@ -1,5 +1,6 @@
 # 멋쟁이사자처럼 피드백 스터디 📝
 `회고 9팀` 매일 배운 내용에 대해 알고리즘을 풀어 코드리뷰를 하는 스터디입니다.
+모든 내용은 [Notion](https://jwhying.notion.site/LIKELION-30e205125bee41afa40442c9a97026c9)에 기록중입니다!
 <br />
 <br />
 
@@ -60,10 +61,3 @@
   -   ***정답이 아닌 힌트를 통해 리뷰이가 스스로 고민하고 수정할 수 있도록 도와주세요!***
 <br />
 <br />
-
-## ✅ 참여자와 진행도
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/Jwhyee"><img src="https://avatars.githubusercontent.com/u/82663161?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jwhy</b><br><img src="https://us-central1-progress-markdown.cloudfunctions.net/progress/1" /></sub></a><br /></td>
-  </tr>
-</table>
