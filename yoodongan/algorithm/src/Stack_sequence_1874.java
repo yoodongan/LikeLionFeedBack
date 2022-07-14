@@ -17,16 +17,14 @@ public class Stack_sequence_1874 {
                     st.push(++addNum);
                     sb.append("+\n");
                 }
-                st.pop();            // addNum == inputNum 이므로, 스택에서 pop 해줍니다.
-                sb.append("-\n");
             }
             else if (st.peek() != inputNum) {     // addNum > inputNum 인 상황에서는, 스택의 맨 위 숫자가 무조건 꺼내져야 합니다.
                 System.out.println("NO");          // 즉, 맨 위 숫자가 아닌 그 아래에 있는 다른 숫자를 꺼내려하면, NO를 출력하고 종료합니다.
                 return;
-            } else {
-                st.pop();        // 만약, addNum > inputNum 인 상황에서, 스택의 top 요소와 inputNum 이 같다면, 그냥 pop 해주면 됩니다.
-                sb.append("-\n");
             }
+            st.pop();        // 만약, addNum > inputNum 인 상황에서, 스택의 top 요소와 inputNum 이 같다면, 그냥 pop 해주면 됩니다.
+            sb.append("-\n");
+
         }
         System.out.println(sb);
     }
