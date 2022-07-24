@@ -56,8 +56,7 @@ public class 적록색약_10026{
     public static int countArea(int[][] map, int cnt) {  // 영역의 개수를 count 해주는 메서드.
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                // normal
-                if (map[i][j] != 0) {
+                if (map[i][j] != 0) {   // 방문하지 않았다면,
                     dfs(i, j, map, map[i][j]);  // 만약, dfs 재귀호출이 끝나면, 더 이상 같은 색상이 아니므로
                     cnt++;   // cnt 에 1 더해준다.
                 }
